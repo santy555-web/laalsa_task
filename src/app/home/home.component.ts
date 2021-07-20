@@ -16,16 +16,16 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.service.getCustomerStatus().subscribe((data)=>
-    {
-      this.CustomerData=data;
-      console.log("Customerdata",data);
-    });
-    this.service.getOrderDetails().subscribe((data)=>
-    {
-      this.orderData=data;
-      console.log("orderdata",this.orderData);
-    });
+    // this.service.getCustomerStatus().subscribe((data)=>
+    // {
+    //   this.CustomerData=data;
+    //   console.log("Customerdata",data);
+    // });
+    // this.service.getOrderDetails().subscribe((data)=>
+    // {
+    //   this.orderData=data;
+    //   console.log("orderdata",this.orderData);
+    // });
     this.service.getRestaurantStatus().subscribe((data)=>
     {
       this.RestaurantData=data;

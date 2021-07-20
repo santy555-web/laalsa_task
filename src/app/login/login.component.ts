@@ -2,7 +2,7 @@ import { Component, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 import { RegistrationService } from '../app.service';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 export class Login{
   email:string;
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   tokenString
   signInForm: FormGroup;
   errorMessage:any;
+  result;
   constructor(
     private service: RegistrationService,
     private router:Router
@@ -30,34 +31,21 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    var email = this.signInForm.value.email;
-    var password = this.signInForm.value.password;
-    var btoaPassword = btoa(email + ':' + password);
-
-    this.service.LoginForm(this.signInForm.value).subscribe((res:any)=>
-    {
+    this.service.LoginForm(this.signInForm.value).subscribe((res: HttpResponse<any>) => {
+      let token =  res.headers.get('x-access-token');
+      localStorage.setItem("token",token);
       console.log(res);
-      localStorage.setItem("token",btoaPassword);
-      this.router.navigate(["/home"]);
-    }),
-     (error) => {
-      this.errorMessage ="Invalid creditionals";
-      throw error;
-      };
+      this.result = res;
+      if(this.result === null || undefined || "" )
+      {
+        this.errorMessage="Invalid creditial";
+      }
+      else{
+        this.router.navigate(['/home']);
+      }
+    })
 }
 
-  dologin() {
-    this.service.LoginForm(this.signInForm.value).subscribe((res:any)=>
-    {
-      console.log(res);
-      localStorage.setItem("userId",res.data.userId);
-      this.router.navigate(["/home"]);
-    }),
-     (error) => {
-      this.errorMessage =error;
-      throw error;
-      };
 
-    }
 
 }
