@@ -41,12 +41,12 @@ constructor(private http:HttpClient ) { }
 
     getRestaurantStatus()
     {
+
       let token = localStorage.getItem('token');
-      let header = new HttpHeaders({ 'Access-Control-Allow-Headers': 'application/json' }).set(
+      let header = new HttpHeaders({ 'Content-Type': 'application/json' }).set(
         'Authorization', 'Bearer ' + token
       );
-
-      return this.http.get(this.url2, {headers:header});
+      return this.http.get(this.url2, {headers : header });
     }
 
     // getHeaders(): Headers {
