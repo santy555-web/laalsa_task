@@ -1,0 +1,34 @@
+
+  <div class="container">
+    <form [formGroup]='signInForm' (ngSubmit)="login()">
+      <h2 class="center">
+          Sign In
+      </h2>
+
+      <div><input type="email" formControlName='email' placeholder="email" class="email-input inputs">
+        <small *ngIf="signInForm.controls['email'].invalid && (signInForm.controls['email'].dirty || signInForm.controls['email'].touched)" class="alert">
+          <div *ngIf="signInForm.controls['email'].errors.required">
+               Email is required.
+            </div>
+      </small>
+        <small *ngIf="signInForm.controls['email'].invalid && (signInForm.controls['email'].dirty || signInForm.controls['email'].touched)" class="alert">
+          <div *ngIf="signInForm.controls['email'].errors.email">
+              Please Enter Valid Email.
+            </div>
+      </small>
+      </div>
+
+      <div><input type="password" formControlName='password' placeholder="Password" class="password-input inputs" autocomplete="on">
+         <small *ngIf="signInForm.controls['password'].invalid && (signInForm.controls['password'].dirty || signInForm.controls['password'].touched)" class="alert">
+          <div *ngIf="signInForm.controls['password'].errors.required">
+              Password is required.
+            </div>
+      </small>
+      </div>
+
+       <div class="login"><button  type="submit" [disabled]='!signInForm.valid' class="login-btn">Login</button></div>
+
+       <div class="forget-pass"><a routerLink="" class="forget"> Forget your  password?</a></div>
+       <div class="alert"> {{errorMessage}}</div>
+       </form>
+  </div>

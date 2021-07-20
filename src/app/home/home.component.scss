@@ -1,0 +1,150 @@
+
+header{
+	padding: 1em 13%;
+  text-align-last: center;
+  display: flex;
+	background-color: white;
+	-webkit-box-shadow: 0 10px 6px -6px #222222aa;
+  -moz-box-shadow: 0 10px 6px -6px #222222aa;
+  box-shadow: 0 10px 6px -6px #222222aa;
+  button{
+    padding: 3px;
+    border-radius: 5px;
+    color: #4442b6;
+    cursor: pointer;
+    border: 1px solid #4442b6;
+    margin: 8px;
+    font-size: 11px;
+  }
+  button:hover{
+    color: #000;
+  }
+  .logout-btn{
+    text-align-last: right;
+    flex:auto;
+    margin-top: 15px;
+  }
+}
+.container {
+	width: 70%;
+	margin: 2em auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 2em;
+	row-gap: 2em;
+
+.card1{
+	width: 100%;
+	background-color: white;
+	border: 2px solid black;
+  height: fit-content;
+	border-radius: 2%;
+	box-sizing: border-box;
+	overflow: hidden;
+
+.card-header{
+	width: 90%;
+	margin: 10px 0 0 10px;
+}
+.card-content{
+	width: 90%;
+	padding: 0 0 0 10px;
+}
+}
+
+.card2{
+	width: 100%;
+  height: fit-content;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 2%;
+	box-sizing: border-box;
+	overflow: hidden;
+  .card-header{
+    width: 90%;
+    margin: 10px 0 0 10px;
+  }
+  .card-content{
+    width: 90%;
+    padding: 0 0 10px 10px;
+    .content-data{
+      .column {
+        float: left;
+      }
+
+      .left {
+        width: 50%;
+      }
+
+      .right {
+        width: 25%;
+        text-align: end;
+      }
+      .mid {
+        width: 25%;
+        text-align: end;
+      }
+      .row:after {
+        content: "";
+        padding-top: 5px;
+        display: table;
+        clear: both;
+      }
+    }
+  }
+}
+.card3{
+	width: 100%;
+  height: fit-content;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 2%;
+	box-sizing: border-box;
+	overflow: hidden;
+  .card-header{
+    width: 90%;
+    margin: 10px 0 0 10px;
+  }
+  .card-content{
+    width: 90%;
+    padding: 0 0 0 10px;
+  }
+  .card-btn{
+    text-align-last: right;
+  }
+  button{
+    padding: 3px;
+    border-radius: 5px;
+    color: #4442b6;
+    cursor: pointer;
+    border: 1px solid #4442b6;
+    margin: 8px;
+    font-size: 11px;
+  }
+  button:hover{
+    color: #000;
+  }
+}
+
+}
+@media screen and (max-width: 650px){
+  .container{
+   	width: 90%;
+  }
+	header {
+		width: 90%;
+		padding: 1em 5%;
+	}
+	.card-content01 {
+		font-size: 0.8em;
+	}
+}
+@media screen and (max-width: 650px){
+  .container{
+   	grid-template-columns: 1fr;
+  }
+	.card-content01 {
+		font-size: 1em;
+	}
+}
+
