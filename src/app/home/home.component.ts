@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
     this.service.getRestaurantStatus().subscribe((data:any)=>
     {
       var restData = data;
+      console.log(restData)
+
       this.RestaurantData.push(restData.data);
     });
   }
