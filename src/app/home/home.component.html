@@ -8,47 +8,43 @@
 </header>
 <div class='container'>
 
-	<div class='card1'>
+<div *ngFor="let item of RestaurantData">
+	<div *ngIf="item.customerStatus" class='card1'>
 		<h4 class='card-header'><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Customer Information</h4>
 		<div class='card-content'>
-      <p><b>Name. : </b><span> Sharvan Pitla</span></p>
-      <p><b>Phone No. : <span> 9032991329</span></b></p>
-      <p><b>Email :</b><span> shravankumar.p@laalsa.com</span></p>
-			<p><b>Address :</b> <span> 47, Lumbini Avenue, Gochibowli, Hyderabad, Telengana, 500081, India</span></p>
+      <p><b>Name. : </b><span> {{item.customerStatus.customerName}}</span></p>
+      <p><b>Phone No. : <span> {{item.customerStatus.phoneNo}}</span></b></p>
+      <p><b>Email :</b><span> {{item.customerStatus.emailId}}</span></p>
+			<p><b>Address :</b> <span> {{item.customerStatus.address.fullAddress}}</span></p>
 		</div>
 	</div>
 
-	<div class='card2'>
-    <h4 class='card-header'>Order Date <span>05/03/2020</span></h4>
+	<div class='card2' *ngIf="item.orderDate">
+    <h4 class='card-header'>Order Date <span class="right">{{item.orderDate | date }}</span></h4>
 		<div class='card-content'>
       <p><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp;<b>Order Details</b></p>
       <div class="content-data">
-        <div class="row">
-        <div class="column left">Egg Hong Kong Noodles</div>
-        <div  class="column mid"> X1 </div>
-        <div class="column right">140</div>
+        <div class="row" *ngFor="let orderDetail of item.orderDetails">
+        <div class="column left">{{orderDetail.orderName}}</div>
+        <div  class="column mid"> {{orderDetail.quantity}} </div>
+        <div class="column right">{{orderDetail.value}}</div>
         </div>
-        <div class="row">
-          <div class="column left">Egg Schezwan Noodles</div>
-          <div  class="column mid"> X1 </div>
-          <div class="column right">140</div>
-          </div>
     </div>
 		</div>
 	</div>
 
-	<div class='card3'>
-		<h4 class='card-header'><i class="fas fa-hotel"></i>&nbsp;Deccen Fried Rice(Gochibowli)</h4>
+	<div class='card3' *ngIf="item.restaurantStatus">
+		<h4 class='card-header'><i class="fas fa-hotel"></i>&nbsp;{{item.restaurantStatus.outletName}}</h4>
 		<div class='card-content'>
-      <p><b>Phone No. :<span> 9949749632</span></b></p>
-      <p><b>Alternate No. : <span> 9949749633</span>,  <span> 9949749634</span></b></p>
-      <p><b>Email :</b><span> shirisha@gmail.com</span></p>
-			<p><b>Address : </b> nalagandla, nalagandla, nalagandla, Hyderabad, Telengana, 500032,India</p>
+      <p><b>Phone No. :<span> {{item.restaurantStatus.mobile}}</span></b></p>
+      <p><b>Alternate No. : <span> {{item.restaurantStatus.mobile2}}</span>,  <span> {{item.restaurantStatus.mobile3}}</span></b></p>
+      <p><b>Email :</b><span> {{item.restaurantStatus.email}}</span></p>
+			<p><b>Address : </b> {{item.restaurantStatus.address.addressLine}}</p>
       <div class="card-btn">
       <button>Update Contact</button>
      </div>
 		</div>
 	</div>
 
-
+</div>
 </div>

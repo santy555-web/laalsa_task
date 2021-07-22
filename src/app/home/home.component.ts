@@ -10,26 +10,17 @@ import { RegistrationService } from '../app.service';
 export class HomeComponent implements OnInit {
   CustomerData:any;
   orderData:any;
-  RestaurantData:any;
+  RestaurantData =[];
   constructor(private router:Router,
     private service: RegistrationService,
     ) { }
 
   ngOnInit(): void {
-    // this.service.getCustomerStatus().subscribe((data)=>
-    // {
-    //   this.CustomerData=data;
-    //   console.log("Customerdata",data);
-    // });
-    // this.service.getOrderDetails().subscribe((data)=>
-    // {
-    //   this.orderData=data;
-    //   console.log("orderdata",this.orderData);
-    // });
-    this.service.getRestaurantStatus().subscribe((data)=>
+
+    this.service.getRestaurantStatus().subscribe((data:any)=>
     {
-      this.RestaurantData=data;
-      console.log("Customerdata",data);
+      var restData = data;
+      this.RestaurantData.push(restData.data);
     });
   }
 

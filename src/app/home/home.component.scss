@@ -29,13 +29,16 @@ header{
 	width: 70%;
 	margin: 2em auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	column-gap: 2em;
 	row-gap: 2em;
 
 .card1{
-	width: 100%;
+	width: 48%;
+  float: left;
 	background-color: white;
+  margin-top: 2%;
+  margin-left: 2%;
 	border: 2px solid black;
   height: fit-content;
 	border-radius: 2%;
@@ -53,8 +56,11 @@ header{
 }
 
 .card2{
-	width: 100%;
+	width: 48%;
+  float: right;
   height: fit-content;
+  margin-top: 2%;
+  margin-left: 2%;
 	background-color: white;
 	border: 2px solid black;
 	border-radius: 2%;
@@ -94,8 +100,11 @@ header{
   }
 }
 .card3{
-	width: 100%;
+	width: 49%;
+  float: left;
   height: fit-content;
+  margin-top: 2%;
+  margin-left: 2%;
 	background-color: white;
 	border: 2px solid black;
 	border-radius: 2%;
@@ -130,6 +139,18 @@ header{
 @media screen and (max-width: 650px){
   .container{
    	width: 90%;
+     .card1{
+      width: 100%;
+      margin-left: 0%;
+     }
+     .card2{
+      width: 100%;
+      margin-left: 0%;
+    }
+    .card3{
+      width: 100%;
+      margin-left: 0%;
+    }
   }
 	header {
 		width: 90%;
